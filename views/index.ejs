@@ -1,0 +1,28 @@
+or Pedidos\views\index.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Bienvenido al Gestor de Pedidos</h1>
+    <p>Esta aplicación te permite gestionar tus productos y usuarios de manera eficiente.</p>
+
+    <div class="dashboard">
+      <a href="/productos" class="card">
+        <h2>Gestión de Productos</h2>
+        <p>Administra tus productos: agrega, edita y elimina.</p>
+      </a>
+
+      <a href="/usuarios" class="card">
+        <h2>Administración de Usuarios</h2>
+        <p>Gestiona los usuarios de tu sistema: crea, actualiza y elimina.</p>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

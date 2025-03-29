@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Productos</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Gestión de Productos</h1>
+    <a href="/">Volver al inicio</a>
+
+    <h2>Agregar Producto</h2>
+    <form action="/productos" method="POST">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required><br><br>
+      <label for="descripcion">Descripción:</label>
+      <input type="text" id="descripcion" name="descripcion" required><br><br>
+      <label for="precio">Precio:</label>
+      <input type="number" id="precio" name="precio" step="0.01" required><br><br>
+      <label for="stock">Stock:</label>
+      <input type="number" id="stock" name="stock" required><br><br>
+      <button type="submit">Agregar Producto</button>
+    </form>
+
+    <h2>Lista de Productos</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Precio</th>
+          <th>Stock</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% productos.forEach(producto => { %>
+          <tr>
+            <td><%= producto.nombre %></td>
+            <td><%= producto.descripcion %></td>
+            <td><%= producto.precio %></td>
+            <td><%= producto.stock %></td>
+            <td>
+              <a href="/productos/editar/<%= producto._id %>">Editar</a>
+              <form action="/productos/eliminar/<%= producto._id %>" method="POST">
+                <button type="submit">Eliminar</button>
+              </form>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
